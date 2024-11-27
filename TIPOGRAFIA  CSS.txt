@@ -1,0 +1,132 @@
+TIPOGRAFIA // CSS
+
+*********
+
+ANATOMIA DOS TIPOS
+
+Altura das maiúsculas: Altura que as letras maiúsculas vão ocupar. Geralmente um pouco menor que a soma da ascendente com a mediana.
+
+Ascendente: Parte das letras maiúsculas que se ergue acima da linha mediana. 
+
+Descendente: Parte das letras minúsculas que passa por baixo da linha base.
+
+Altura-X: Também chamada de mediana, define o tamanho das letras minúsculas. Tem esse nome,  pois se baseia no tamanho da letra x minúscula.
+
+Corpo: É a soma de quatro medidas: ascendente + altura-x + descendente + espaço de reserva. É o tamanho total da letra. É o valor que escolhemos ao configurar o tamanho da fonte em um texto. 
+
+*******
+
+Para configurar a família tipográfica, utilizamos a propriedade "font-family" das CSS. Se indicarmos mais de uma família na sequencia, estamos indicando ao navegador que de preferencia para a primeira. Caso ela não seja encontrada, tente a próxima. E essa estratégia se seguira até a ultima, que geralmente é a família genérica 'serif, sans-serif ou monospaced'. 
+
+<style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        h2 {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        p {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+
+Existem as chamadas sequencias seguras para especificações de famílias de fontes. Para ver quais são elas,  abra o google e faça uma rápida busca por CSS Web Safe Font Combinations. 
+
+*******
+
+TAMANHO DA FONTE
+
+Existem vários tipos de medidas para fontes, mas as recomendadas pela W3C para uso são px ou em. 
+
+A medida 'em' é uma medida referencial ao tamanho original da fonte. O tamanho padrão de uma fonte é geralmente de 16px, isso equivale a 1em. A partir dai, podemos configurar o tamanho de um titulo, por exemplo sendo 2 vezes maior que a fonte padrão usando o valor 2em para a propriedade. 
+
+   <style>
+
+       h1 {
+            font-size: 2em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+        }
+    </style>
+
+********
+
+
+ESTILOS DE FONTE EM CSS
+
+Existem outras formatações muito usadas em CSS, que são propriedades font-style para aplicar o itálico e font-weight para aplicar o negrito, sem contudo existir valor semântico. 
+
+O padrão para essas duas propriedades é o valor normal, mas podemos aplicar o valor itálico ao font-style usando italic (mais compatível) ou oblique (menos compatível). Já o negrito, pode ser aplicado por nomes como lighter, bold e bolder ou pelo pelo numérico, que pode ir do 100 até o 900 (nem todas as fontes terão esse peso).
+
+As formatações de fonte são tão importantes e tão usadas em CSS, que existem "atalhos" para usa-las. São as chamadas shorthands.
+
+Existe uma shorthand para fontes que é a propriedade font. No lugar de fazer várias configurações em múltiplas linhas, podemos simplificar tudo de maneira muito simples. 
+
+Por exemplo, no lugar de configurar o estilo dos parágrafos do nosso site desse jeito: 
+
+
+	    font-family: Arial, Helvetica, sans-serif;
+            font-size: 3em;
+            font-style: italic;
+            font-weight: bold;
+
+Podemos simplicar essas configurações com a propriedade 'font' , como mostrado abaixo:
+
+******font: italic bold 3em Arial, Helvetica, sans-serif;******
+
+A ordem dos atributos de uma shorthand em CSS é importante. No caso da propriedade 'font', devemos informar, na ordem:
+
+            font-style
+            font-variant
+            font-weight
+            font-size
+            font-family
+
+********
+
+USANDO FONTES EXTERNAS BAIXADAS
+
+Para baixar fontes no seu computador, um site ótimo para isso seria o Dafonts, onde existem diversos tipos de fontes para ser utilizadas gratuitamente. 
+
+Assim que escolher sua fonte e baixa-la, o primeiro passo seria colocar o arquivo da fonte com o formato otf ou ttf na pasta fonts dentro do seu projeto. 
+
+Para usarmos essa fonte, devemos colocar uma regra dentro da tag <style>, que seria @font-face, como no exemplo abaixo: 
+
+@font-face {
+            font-family: 'Love';   /* o tipo de fonte (pode colocar qualquer nome que desejar) */
+            src: url('fonts/love larry ttf.ttf') format('truetype');   /* url (onde será colocado o nome do arquivo e a pasta onde está localizado)  - format (tipo de formato do arquivo) */
+            font-weight: normal;
+            font-style: normal;
+
+Tipos de format()
+                - opentype (otf)
+                - truetype (ttf)
+                - embedded-opentype
+                - truetype-aat (apple advanced typography)
+                - svg
+
+Assim que tudo estiver pronto, basta selecionar em qual parte do seu site deseja colocar essa fonte. 
+
+h1 {
+            font-family: 'Love', Times, serif;
+            font-size: 3em;
+            font-weight: normal;
+        }
+
+**********************************
+
+CAPTURANDO FONTES USADAS EM UM SITE
+
+Para capturar fontes usadas em um site, usamos a extensão FontsNinja. 
+
+CAPTURANDO FONTES DE IMAGENS 
+
+Usamos os sites What the font is, Font Squirrel e o MyFonts.

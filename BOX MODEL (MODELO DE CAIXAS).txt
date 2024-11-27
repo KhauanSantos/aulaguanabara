@@ -1,0 +1,199 @@
+BOX MODEL (MODELO DE CAIXAS)
+
+***************************
+
+De forma simples e objetiva, baseado em um conceito chamado "box model", a grande maioria dos elementos HTML que temos no nosso site são como caixas. Elas são containers que armazenam conteúdos ou até mesmo outras caixas.
+
+Tudo começa a partir do conteúdo (content). Por padrão, toda caixa é composta apenas pelo conteúdo e não possui padding (preenchimento), nem border (borda), nem outline e nem margin. Uma exceção curiosa é o elemento <body> que já vem com uma margin de 8px.
+
+Uma caixa tem um tamanho, que é especificada em dois tamanhos, sendo elas: height (altura) e width (largura), esse conjunto de propriedades, damos o nome de box-size (tamanho da caixa). O tamanho da caixa não inclui as medidas de padding, border, outline e margin.
+
+Depois do conteúdo e de seu tamanho, vamos nos focar na borda que fica em volta dele. Ela pode ter uma espessura, uma cor e um formato. 
+
+Entre a borda e o conteúdo - da borda para dentro - temos o preenchimento (padding) e da borda para fora, temos a margem (margin). 
+
+Entre a margem e a borda, podemos determinar o contorno (outline) que é muito pouco utilizado, mas existe. Ele é um traçado visual que podemos criar fora da borda e o cálculo da sua espessura faz parte da margem estabelecida. 
+
+******************************
+
+TIPOS DE CAIXA 
+
+box-level - Um elemento dito box-level sempre vai se iniciar em uma nova linha e vai ocupar a largura total do elemento onde ele está contido. Se não estiver contido em nenhuma outra caixa, ele vai ocupar 100% da largura do <body>. 
+
+O elemento box-level mais conhecido é o <div> e suas variações semânticas modernas da HTML5, como <main>, <section>, <aside>, etc.
+
+Na lista a seguir, são alguns elementos HTML que são box-level:
+
+<address>
+<article> 
+<aside>
+<blockquote> 
+<canvas>
+<dd>
+<div>
+<dl>
+<dt>
+<fieldset>
+<figcaption>
+<figure>
+<footer>
+<form>
+<h1 - h6>
+<header>
+<hr>
+<li>
+<main>
+<nav>
+<noscript>
+<ol>
+<p>
+<pre>
+<section>
+<table>
+<tfoot>
+<ul>
+<video>
+
+inline-level - Um elemento do tipo inline-level não vai começar em numa nova linha, e sim no ponto exato onde foram definidos. E a largura dele vai ocupar apenas o tamanho relativo ao seu conteúdo. 
+
+Segue alguns elementos inline-level usado pela HTML: 
+
+<a> 
+<abbr>
+<aronym>
+<b>
+<bdo>
+<br>
+<button>
+<cite>
+<code>
+<dfn>
+<em>
+<i>
+<img>
+<input>
+<kbd>
+<label>
+<map>
+<object>
+<output>
+<q>
+<samp>
+<script>
+<select>
+<small>
+<span>
+<strong>
+<sub>
+<textarea>
+<tt>
+<var>
+
+
+***********************
+
+Vamos criar um exemplo simples para exemplificar esses componentes, configurando as propriedades do modelo de caixa box-level de um título <h1> e o modelo de caixa inline-level de um link  <a> dentro de um paragrafo <p>. 
+
+<style>
+        h1 {  /* modelo tipo box-level */
+            background-color: lightgray;
+            height: 300px ;
+            width: 300px ;
+            border-width: 10px;
+            border-style: solid;
+            border-color: darkslategray;
+            
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+
+            margin-top: 20px;
+            margin-right: 20px;
+            margin-bottom: 40px;
+            margin-left: 20px;
+        }
+
+        a {   /* modelo tipo inline-level */
+            border-width: 10px;
+            border-style: solid;
+            border-color: red;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de caixa box-level</h1>
+    <p>Paragráfos também são exemplos de box-level, mas os <a href="">links são exemplos de caixas inline-level</a>. Vamos ver como tudo isso funciona.</p>
+</body>
+
+Analisando esse código, conseguimos verificar as formas de configurações da caixa. No <h1> deixamos a altura e a largura com 300x300px, implementando o estilo e tamanho da largura da borda (border-width, border-style, border-color). Logo em seguida, criamos as configurações para o padding (espaçamento), com (padding-top, right, bottom, left). Fizemos o mesmo para a margem (margin) com (margin-top, right, bottom, left). E para finalizar configuramos o outline (contorno) com (outline-width, style, color).
+
+
+*****PARA CALCULAR A LARGURA E ALTURA TOTAL DE UM ELEMENTO NA TELA, SOME OS TAMANHOS DO conteúdo + preenchimento + borda + margem. O contorno não vai entrar nessa conta, pois utiliza parte da medida da margem.
+
+
+ATALHOS PARA SIMPLICAR AS CONFIGURAÇÕES PARA PROPRIEDADES: 
+
+border: 10px solid darkslategray; (width, style e color)
+
+******************************
+
+padding: 10px; (top, right, bottom, left) **caso todos os lados tenham a mesma medida, basta colocarmos a medida somente uma vez.
+
+******************************
+
+margin: 20px 20px 40px 20px; (top, right, bottom, left) **caso todos os lados tenham a mesma medida, basta colocarmos a medida somente uma vez.
+
+**caso queira centralizar a margem da esquerda e da direita, basta colocarmos auto no shorthand, por exemplo: margin: 20px auto 40px auto;
+
+******************************
+
+outline: 5px dashed salmon; (width, style, color)
+
+******************************
+
+margin: auto (deixa o elemento centralizado na tela do computador)
+
+display: block ou inline (muda a propriedade do elemento).
+
+**************
+
+SOMBRA NAS CAIXAS
+
+As sombras são muito úteis para dar volume, para dar a sensação de que as caixas estão ali realmente. Para isso utilizamos a declaração 'box-shadow: 1px 1px 1px 1px black' 
+
+A ordem do shorthand das sombras é: 
+
+1. Deslocamento horizontal (h-offset): quanto a sombra vai andar para o lado direito (valores negativos causa deslocamento para o lado esquerdo)
+
+2. Deslocamento vertical (v-offset): quanto a sombra vai andar para baixo (valores negativos causam deslocamento para cima).
+
+3. Embaçamento (blur): quanto a sombra vai se espalhar pelo funo.
+
+4. Extensão: quanto a sombra irá se estender na caixa. 
+
+5. Cor da sombra. É possível usar transparência. 
+
+*****EXISTE TAMBÉM A DECLARAÇÃO 'box-shadow: inset 1 px 1px 1px 1px 1px black' (ela é utilizada para criar sombra de fora para dentro da caixa.
+
+******PODEMOS USAR O DEVTOOLS DO NAVEGADOR PARA NOS AJUDAR A CONFIGURAR A SOMBRA DE FORMA MAIS CLARA. 
+
+*************************
+
+CAIXAS COM BORDAS ARREDONDADAS 
+
+Podemos arredondar os vértices usando uma declaração simples usando a propriedade border-radius. Adicione o seguinte comando ao seletor do artigo: 
+
+border-radius: 10px;
+
+Na declaração acima, todos os vértices foram levemente arredondados (10px) de forma simétrica. Se for necessário, podemos indicar quatro medidas diferentes, uma para cada vértice, por exemplo: 
+
+border-radius: 10px 20px 30px 40px;
+
+Assim como fizemos com as margens, também é possível indicar apenas dois valores, o que vai agir em vértices intercaladas, partindo do canto superior esquerdo.
+
+border-radius: 10px 30px; 

@@ -1,0 +1,145 @@
+PSEUDO CLASSES 
+
+*************************************************************************
+
+Uma pseudo classe CSS é uma palavra chave adicionada às declarações de um seletor após um sinal de dois pontos e especificam um estado especial de um elemento. Existem várias pseudo-classes para estilos, podemos citar: :hover, :visited, :active, :checked, :empty, :focus.
+
+**********
+
+:hover - é utilizado para quando passarmos o mouse em algum elemento do site, esse elemento ser alterado de alguma forma, seja o tamanho, cor, fonte e etc...
+
+:visited - usado para deixar o texto com uma decoração especifica quando já foi visitado.
+
+:active - usado para deixar o texto com uma decoração especifica quando estiver sendo clicado.
+
+**********
+
+Já um pseudo-elemento CSS é uma palavra-chave adicionada às declarações de um seletor após dois sinais de dois pontos e permitem que você formate um pedaço especifico do elemento referenciado. Os principais pseudo-elementos usados nas CSS são: ::before, ::after, ::firt-	letter, ::firt-line.
+
+********************
+
+
+Vamos começar criando um exemplo bem simples:
+
+<body>
+    <h1>Personalizando um link</h1>
+    <p>
+        Para aprender HTML5 e CSS3, acesso o <a href="https://gustavoguanabara.github.io">
+            GitHub do Guanabara
+        </a>
+    </p>
+    <p>
+        Se quiser conhecer mais sobre os padrões, visite o site do <a href="https://www.w3c.br">Escritório do W3C no Brasil</a>
+    </p>
+    <p>
+        Para acompanhar os cursos, acesso o <a href="https://www.youtube.com/cursoemvideo/" class="especial">Canal do CursoemVideo</a>
+    </p>
+</body>
+
+Começando pelo corpo do documento, contendo só o HTML,	vamos criar um texto com um título e três parágrafos, com três links. Note que o último link recebeu a atribuição especifica. Por padrão, os navegadores mostram links inéditos em azul e os visitados em violeta. Todos os links também aparecem sublinhadas por padrão. 
+
+Vamos alterar essa apresentação padrão com nossas configurações de estilo. Crie a área <style> dentro de <head> e coloque os seguintes seletores:
+
+<style>
+        body {
+            font: normal 1em Arial, Helvetica, sans-seriff;
+        }
+
+        a {
+            font-weight: bold;
+            text-decoration: none;
+            color: red;
+        }
+
+        a:visited {
+            color: darkred;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+Nas declarações acima, citamos três configurações para os links: a primeira para links inéditos (não visitados), colocando o texto em negrito, removendo o sublinhado e colocando-os em cor vermelha.
+
+No segundo seletor para links, configuramos as âncoras já visitadas (com a pseudo-classe :visited). Nele, apenas mudamos a cor para vermelho escuro.
+
+Já na terceira declaração, fizemos configurações para todos os links, quando passarmos o mouse por cima (pseudo-classe :hover) o sublinhado volta a aparecer. 
+
+Por fim, vamos adicionar algumas configurações relacionadas à classe especial, criada no documento HTML, para o terceiro link.
+
+.especial:hover {
+            color: white;
+            background-color: black;
+            text-decoration: none;
+        }
+
+        .especial::before {
+            content: '>>';
+            font-weight: lighter;
+        }
+
+        .especial::after {
+            content: '<<';
+            font-weight: lighter;
+        }
+
+Na primeira declaração do código acima, dizemos que o link da classe especial vai ter a letra branca, fundo preto e perderá o sublinhado apenas quando movermos o mouse sobre ele.
+
+Nas próximas declarações, vamos adicionar um símbolo >> antes e outro símbolo << depois usando os pseudo-elementos ::before e ::after, respectivamente.
+
+**************************************
+
+MAIS UM EXEMPLO:
+
+Vamos criar mais um exemplo para o uso de pseudo-classes. Nosso HTML vai ter o seguinte corpo:
+
+<body>
+    <h1>Exemplo de hover</h1>
+    <p>Passe o mouse sobre o texto abaixo</p>
+    <div>
+        Passe o mouse aqui
+        <p>TEXTO ESCONDIDO...</p>
+    </div>
+    <p>Fim do exemplo</p>
+</body>
+
+Na linha 20, criamos um bloco especial com a tag <div>. Uma das grandes vantagens em usar divs é que elas podem ter outras tags dentro dela, assim como o paragrafo interno que criamos na linha 22.
+
+Vamos criar nosso estilo agora, dentro da área <head>:
+
+<style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        div > p {
+            display: none;
+        }
+
+        div:hover > p {
+            display: block;
+            color: white;
+            background-color: red;
+            width: 300px;
+        }
+
+        div:hover {
+            color: red;
+        }
+    </style>
+
+O primeiro seletor vai esconder o paragrafo que está dentro da div (representada em CSS como div >p) através da propriedade display com o valor none.
+
+O segundo seletor, vai fazer o paragrafo escondido reaparecer, com o fundo pintado de vermelho quando passarmos o mouse sobre ele.
+
+*******TODA VEZ QUE USAMOS O SÍMBOLO > EM UM SELETOR, INDICAMOS OS FILHOS (CHILDREN) IMEDIATOS DE UM ELEMENTO. NO EXEMPLO HTML QUE CRIAMOS, DIZEMOS QUE O PRIMEIRO PARAGRAFO É DIRECT CHILDREN DA DIV.********
+
+
+ANOTAÇÃO DE SIMBOLOGIAS PARA SELETORES PERSONALIZADOS:
+
+     # = id
+      . = class
+      : = pseudo-classes
+      :: = pseudo-elementos
+      > = children

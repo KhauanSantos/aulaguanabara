@@ -1,0 +1,109 @@
+CSS - CURSO GUANABARA
+
+
+ESTILOS DE CSS
+
+******
+
+CSS INLINE
+
+Essa técnica basicamente utiliza as CSS dentro dos parâmetros do HTML5, como por exemplo neste código abaixo:
+
+<body style="background-color: lightcoral; font-family: Arial, Helvetica, sans-serif;">
+    <h1 style="color: aqua;">Capítulo 1</h1>
+    <h2 style="color: cadetblue;">Capítulo 1.1</h2>
+    <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio expedita laborum nulla, laudantium assumenda maxime qui mollitia totam dolor neque perspiciatis voluptate, atque veritatis accusantium magnam rerum ut? Necessitatibus, quisquam?</p>
+    <h2 style="color: aqua;">Capítulo 1.2</h2>
+    <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam vitae, rem asperiores aliquam molestias iste ratione voluptatem nulla tempora possimus soluta cupiditate doloremque voluptatum! Quos odit explicabo et dolor aliquam.</p>
+    <h1 style="color: aqua;">Capítulo 2</h1>
+    <h2 style="color: cadetblue;">Capítulo 2.1</h2>
+    <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus nisi earum quibusdam odit tempore assumenda dicta soluta, rem quo distinctio totam velit porro eveniet iure mollitia itaque non iusto rerum?</p>
+    <h2 style="color: cadetblue;">Capítulo 2.2</h2>
+    <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque tenetur vel culpa architecto fugit, eligendi accusantium ab quam explicabo laborum, rem a. Quia, id cumque tenetur velit tempora magni exercitationem?</p>
+</body>
+
+Como percebemos, essa maneira de utilizar as CSS está de acordo com as normas atuais do HTML5, mas visualmente tudo está muito confuso e poluído, tornando esse formato pouco utilizado e inadequado.
+
+********
+
+CSS INTERNO
+
+Essa maneira de aplicar CSS em seu HTML5 é muito mais dinâmica e prática, podemos add a tag <style> dentro da Área <head> do nosso doc HTML local, exemplo:
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos locais ou internos</title>
+    <style>
+        body{
+
+            background-color: lightsteelblue;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            
+        }
+
+        h1{
+
+            color: darkblue;
+            background-color: lightblue;
+
+        }
+
+        h2{
+            color: darkred;
+        }
+        
+        p{
+            text-align: justify;
+        }
+    </style>
+
+Esse estilo possui poucas desvantagens, mas que podem incomodar no futuro. Caso o seu site possuir mais de 30 páginas e o seu cliente desejar aplicar o mesmo estilo em todas as páginas, teríamos que copiar e colar esse código em cada página, uma por uma. A outra desvantagem seria o espaço que isso ocupa na tag <head>.
+
+Pode ser usado para estilizar pequenas coisas.
+
+**********
+
+CSS EXTERNO
+
+Manter as folhas de estilo fora do código HTML, além de uma maior organização faz com que tudo seja reaproveitado de maneira mais eficiente nas outras páginas do nosso site. Para isso, utilizamos a tag <link> especialmente configurada para trabalhar com arquivos externos de estilo. Essa tag deve ser colocada dentro da área <head> do seu doc HTML, exemplo:
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos locais ou internos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+OBS: Podemos criar mais de um link dentro da tag <head>
+
+Após criar o arquivo style.css com o atalho "Ctrl + Clique", basta adicionar os seletores e todas as suas respectivas declarações nesse arquivo separado, exemplo:
+
+@charset "UTF-8";
+
+body{
+    background-color: lightgoldenrodyellow;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+h1{
+    color: maroon;
+    background-color: darkgoldenrod;
+}
+
+h2{
+    color: darkred;
+}
+
+p{
+    text-align: justify;
+}
+
+Na linha 1, foi colocada uma regra que indica a compatibilidade de codifação com o padrão UTF-8, assim como fizemos com o arquivo HTML5. Não é algo obrigatório, mas caso ocorra algum problema de compatibilidade com caracteres, saiba que ela existe e pode ser utilizada.
+
+Esse estilo é o mais adequado para ser usado. 
+
+********

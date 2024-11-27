@@ -1,0 +1,182 @@
+PSICOLOGIA DAS CORES - CURSO GUANABARA
+
+As cores são muito mais importantes em um site do que se imagina, as cores podem instantemente passar um sentimento para a pessoa. A cor de seu site ou a harmonia de cores que o seu site pode acabar utilizando, influencia muito na vontade da pessoa que está do outro lado da tela continuar acessando, ou até mesmo comprando o produto. Por isso, TODO o criador de site, deve possuir, ao menos, uma noção básica sobre as paletas de cores, e qual emoção cada cor pode passar para uma pessoa, como por exemplo nessa tabela.
+
+************************
+
+VERMELHO 
+
+associada a amor, emoção, energia, raiva, perigo.
+
+usado em comida, moda, entretenimento, serviços de emergência e saúde. 
+
+evitar usar em luxo, natureza, serviços em geral.
+
+************************
+
+AMARELO 
+
+associada a felicidade, alegria, otimismo, covardia.
+
+usar para dar luz, calma, felicidade, chamar a atenção.
+
+evitar, pois pode indicar algo barato ou spam.
+
+************************
+
+LARANJA 
+
+associada a divertimento, ambição, calor, cautela
+
+usada em comercio eletrônico, entretenimento, call-to-action
+
+evitar usar pois pode ser cansativo se muito explorado.
+
+************************
+
+VERDE 
+
+associada a saúde, natureza, dinheiro, sorte, inveja
+
+usada em relaxamento, turismo, financeiros, meio ambiente
+
+evitar o uso em luxo, tecnologia.
+
+************************
+
+AZUL 
+
+associada a competência, sabedoria, calma, frio.
+
+usada em tecnologia, medicina, ciências, governo.
+
+evitar usar em comida (reduz apetite)
+
+************************
+
+ROXO 
+
+associada a criatividade, poder, sabedoria, mistério.
+
+usada em produtos de beleza. astrologia, ioga, espiritualidade, adolescente.
+
+evitar usar, pois não prende muito a atenção, indiferente.
+
+************************
+
+MARROM
+
+associada a terra, robustez, estabilidade, amizade.
+
+usada em alimentação, imobiliária, animais, finanças.
+
+evitar usar, pois é uma cor considerada conservadora.
+
+************************
+
+PRETO
+
+associada a elegância, autoridade, mistério, morte.
+
+usar em luxo, moda, marketing, cosméticos.
+
+evitar usar, pois causa desconforto e medo.
+
+************************
+
+BRANCO
+
+associada a pureza, limpeza, felicidade e segurança.
+
+ usar em medicina, saúde, tecnologia, luxo (com preto, ouro, cinza).
+
+evitar usar, pois não chama a atenção, deve ser combinado com outra cor.
+
+************************
+
+CINZA
+
+associada a formalidade, sofisticação, frieza, indiferença.
+
+usar em bens de luxo, efeito calmante.
+
+evitar, pois pode causar sensação de frieza.
+
+************************
+
+ROSA
+
+associada a amor, romance, sinceridade, cuidados.
+
+usar em produtos femininos e cosméticos.
+
+evitar, pois pode tornar muito sentimental e doce.
+
+************************
+
+REPRESENTANDO CORES EM CSS3
+
+Temos como representar as cores em CSS3 de 4 formas diferentes, seriam elas: 
+
+Representação por nomes - ex: Blue, Red, White e etc;
+
+Representação por códigos hexadecimais - ex: #0000ff, #ffffff e etc;
+
+Representação rgb (red, green, blue) - ex: rgb(0, 0, 255), rgb(255, 255, 255).
+
+Representação hsl (hue, saturation, luminosity) - ex: hsl(240, 100%, 50%), hsl(0, 0%, 100%);
+
+Com todas essas representações, podemos adicionar uma transparência nelas. Basta colocar o ponteiro do mouse sobre a representação de cores utilizada, que uma janela irá aparecer, assim, basta arrastar a barra de transparência que tem ao lado e perceber que mais um valor (alpha) será adicionado ao código.
+
+*******
+
+HARMONIA DE CORES
+
+cores primárias: Amarela, Vermelho e Azul
+
+cores secundárias: Laranja, Violeta e Verde
+
+cores terciárias: São todas as outras que são misturas das cores primárias e secundárias. (amarelo-esverdeado, vermelho-alaranjado, vermelho-arroxeado, azul-arroxeado, azul-esverdeado).
+
+cores frias: amarelo-esverdeado, verde, azul-esverdeado, azul, azul-arroxeado, violeta.
+
+cores quentes: amarelo, amarelo-alaranjado, laranja, vermelho-alaranjado, vermelho, vermelho-arroxeado
+
+cores complementares: no circulo cromático, é sempre a cor oposta a outra. Se pegarmos qualquer cor primária, a sua cor complementar é sempre uma cor secundária. De forma similar, qualquer cor terciária tem uma outra cor terciária como complementar. Quando juntamos duas cores complementares, sempre obtemos cinza.
+
+cores análogas: são as cores vizinhas, com a cor principal sendo a do meio. Por serem cores vizinhas, elas possuem um baixo contraste entre elas, mas criam uma bela harmonia quando combinamos em um mesmo design.
+
+cores análogas e uma complementar: as cores vizinhas, com uma cor oposta sendo a cor principal. Criando um grande contraste com as três análogas.
+
+cores análogas relacionadas: escolhemos duas cores análogas (consecutivas) e depois pulamos a terceira cor (em qualquer direção) e escolhemos a quarta. Com essa técnica, conseguimos um resultado parecido com o das coes análogas simples, mas com um pouco mais de contraste sem ter que escolher uma cor complementar. 
+
+cores intercaladas: um tipo menos usado de harmonia, já que as vezes não funciona tão bem assim. Vamos escolher a primeira cor e depois mais duas com intervalo constante entre elas. 
+
+cores triádicas: técnica bastante utilizada e que garante uma grande riqueza de cores, onde escolhemos três pontos equidistantes no circulo cromático. Esse esquema gera sempre um triangulo equilátero e cria uma opção que sempre possui um ótimo contraste entre as cores.
+
+cores em quadrado: Bastante semelhante ao esquema triádico, mas permite selecionar quatro cores com um contraste razoável entre as cores escolhidas. Esse esquema gera sempre um quadrado perfeito com os pontos selecionados.
+
+cores tetrádicas: Vamos escolher dois pares de cores complementares, que não serão necessariamente análogas ou consecutivas. Isso vai nos garantir dois pares de cores, com bastante contraste entre si.
+
+monocromia: uma harmonia bem diferente das anteriores, que usa apenas uma cor e varia apenas a sua saturação e o seu brilho. Essa combinação geralmente gera pouquíssimo contraste entre as cores escolhidas, mas acaba gerando um resultado visual bem agradável aos olhos, conhecido como "degrade".
+
+****
+
+PALETA DE CORES
+
+Sites para criar paleta de cores para o seu projeto: Adobe Color, Paletton e Colors.
+
+DICA** SEMPRE USAR PALETA COM NO MÁXIMO 5 CORES, O RECOMENDADO SERIA 3 OU 4 CORES.
+
+****
+
+DEGRADÊ EM CSS
+
+Para criar um degradê em CSS, utilizamos a declaração background-image: linear-gradient.
+
+A função linear-gradient é auto-explicativa e gera um gradiente linear angular. O primeiro parâmetro da função, indica o ângulo de inclinação de 90 graus (90deg) e as seguintes indicam as cores do degrade a ser criado. Você pode indicar quantas cores quiser e o navegador vai saber se virar pra gerar seu degrade personalizado, ou podemos utilizar o parâmetro mais simples (to top, to bottom, to right, to left). O degrade pode ser personalizado mais ainda colocando uma porcentagem ao lado da cor como red 10%, yellow 40%, green 50%. 
+
+***LEMBRANDO QUE ESSA DECLARAÇÃO DEVE SER UTILIZADA DENTRO DE ALGUM SELETOR (EX. BODY, H1 E ETC) E ESSES SELETORES DEVEM ESTAR DENTRO DA TAG STYLE.
+
+
+DICA**** EVITE USAR UM DEGRADE MUITO COLORIDO, PARA O SITE NÃO FICAR PARECENDO UM CIRCO // TENTE AO MÁXIMO USAR DEGRADES DISCRETOS.

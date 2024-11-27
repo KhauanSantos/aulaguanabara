@@ -1,0 +1,196 @@
+HTML5 - CURSO GUANABARA
+
+Formatações:
+
+tag <strong>: Deixar em negrito
+tag <em>: Deixar em itálico
+tag <del>: Indicar um texto como excluído
+tag <ins>: Marcar como inserido para dar ênfase e indicar que ele foi adc depois
+tag <sup>: Texto sobrescrito
+tag <sub>: Texto subscrito
+
+Outras formatações:
+
+tag <code>: Tag que deixa a fonte mono espaçada (ideal para ler códigos) OBS: Não deixa o código indentado no site
+
+tag <pre> <code>: Tag que deixa o código com a fonte mono espaçada e indentada para o site.
+
+Citações simples:
+
+tag <q> ou quote: Tag usada com sentido para citações, por exemplo: *Como diria o pai de um amigo: "o computador é um burro muito rápido"*
+
+Citações completas:
+
+tag <blockquote> ou <blockquote cite>: tag usada para uma citação mais completa com referencia ao autor
+
+Abreviações: 
+
+tag <abbr>: Usado para mostrar o significado de uma abreviação ou vice-versa.
+
+Listas ordenadas:
+
+tag <ol> <li>: tag para criar listas ordenadas.
+
+Podemos usar o ****<ol type>**** para selecionar o tipo de lista ordenada que queremos, por exemplo: listas ordenadas com o tipo numérico, ou com o tipo alfabético e etc...
+
+Listas não ordenadas:
+
+tag <ul> <li>: tag para criar listas não ordenadas.
+
+Misturando as listas:
+
+Podemos misturar as listas caso precisar, por exemplo:
+
+    <ol>
+        <li>Antigas</li>
+        <ol type="a">
+            <li>Clipper</li>
+            <li>Fortran</li>
+        </ol>
+        <li>Novas</li>
+        <ol type="a">
+            <li>Python</li>
+            <li>JavaScript</li>
+        </ol>
+    </ol>
+
+No site, ficaria assim:
+
+1.Antigas
+           a. Clipper
+           b. Fortran
+2.Novas
+           a. Python
+           b. JavaScript
+
+Podemos fazer isso com as listas ul e ol também.
+
+
+Links e Âncoras
+
+Usando links externos
+
+tag <a (significa âncora) (com o atributo) href> = Usada para criar links no seu site, pode ser usada com diversas ramificações, como por exemplo link internos (não é necessário colocar a URL) ou externos (sempre necessário colocar a URL). OBS: sempre quando for criar um link externo que direciona para outro site, utilizar logo após a tag <a> o "atributo" target, que suporta os valores: 
+
+_blank: vai abrir o link em uma nova janela em branco
+_self: vai abrir o link na janela ou frame atual (padrão)
+
+Como devemos indicar qual a natureza do link?
+
+Podemos fazer isso usando o atributo "rel", ele aceita diversos tipos de valores:
+
+next: indica que o link é para a próxima parte do documento atual
+prev: indica que o link é para a parte anterior do documento atual
+author: indica que é um link para o site do autor do artigo atual
+external: indica que é um link para outro site que não faz parte do site atual
+nofollow: indica que é um link para um site endossado, como um link pago
+
+Usando links internos
+
+Utilizamos a mesma tag <a href>, mas sem precisar colocar a URL (https). 
+
+Mas para adicionar um link interno, primeiro, precisamos criar um arquivo novo na mesma pasta do nosso site, e assim que criarmos podemos utilizar a tag <a href "link interno"> que irá direcionar imediatamente a pessoa a outra parte do site, sobrepondo a parte inicial. 
+
+Caso queiramos voltar a parte anterior, fazemos a mesma coisa. OBS: Sempre muito importante mantermos a semântica (utilizando o "rel" correto, como por exemplo, quando estamos avançando uma parte do site, colocarmos o valor "next" ao "rel".
+
+******LEMBRETE: CASO DESEJAR VOLTAR DA PÁGINA 3 PARA A PÁG 1, UTILIZAR O LINK INTERNO "../"******
+
+Links para download
+
+Continuamos usando a tag <a href>. Para criar o hyperlink, primeiro precisamos ter uma pasta especifica dentro do html para colocarmos os arquivos para download, seja ele PDF, ZIP e etc. 
+
+Logo após a tag <a href> utilizamos o atributo "download="nome_do_arquivo.tipo_da_media_do_arquivo" e o atributo "type=application/tipo_da_media_do_arquivo
+
+*************************************
+
+Imagens dinâmicas
+
+As imagens dinâmicas são utilizadas para adaptar o site de acordo com o tamanho da tela para o usuário, ajudando o site no desempenho que ele tem com o algoritmo do google, ou qualquer outro mecanismo de pesquisa. 
+
+Para fazermos uma imagem dinâmica, precisamos ter a mesma imagem em tamanhos diferentes, como por exemplo uma imagem com o tamanhho de 300px, 700px e 1000px, podemos alterar o tamanho de qualquer imagem tanto pelo gimp, ou qualquer aplicativo de photoshop, assim que as imagens estiverem prontas, adicionamos em nosso código em uma pasta onde elas devem estar guardadas, logo após isso, utilizamos a: 
+
+Tag <picture> e logo em seguida dentro desta tag, inserimos a tag <img> para inserimos a imagem que alteramos o tamanho, para facilitar, o recomendado é sempre começar com a maior imagem. 
+
+Logo após utilizarmos a tag <img>, iremos inserir a tag <source> logo acima da tag <img> (isso deve ser obrigatório para as imagens dinâmicas surtirem efeito). Dentro da tag <source> teremos três atributos: type, scrset e media.
+
+EXEMPLO: 
+
+<picture>
+        <source media="(max-width: 750px)" srcset="imagens/foto-p.png" type="image/png">
+        <source media="(max-width: 1050px )" srcset="imagens/foto-m.png" type="image/png">
+        <img src="imagens/foto-g.png" alt="Imagem Flexível">
+    </picture>
+
+
+type: vai indicar o mediatype que usamos.
+srcset: vai configurar o nome da imagem que será carregada quando o tamanho indicado for atingido.
+media: indica o tamanho máximo a ser considerado para carregar a imagem indicada no atributo srcset.
+
+Após preenchermos a primeira tag <source> com a imagem média, iremos criar outra tag logo acima da para colocarmos a imagem pequena. (É importante que existe essa ordem crescente ou decrescente entre os <source> de acordo com "max-width" colocado).
+
+***********************************
+
+
+ÁUDIO EM HTML
+
+  <audio preload="metadata" autoplay controls loop>
+        <source src="media/tillIletgo.mp3" type="audio/mpeg">
+        <source src="media/tillIletgo.ogg" type="audio/ogg">
+        <source src="media/tillIletgo.wav" type="audio/wav">
+        <p>Infelizmente seu navegador não consegue reproduzir áudio. <a  href="media/tillIletgo.mp3" download="tillIletgo.mp3" type="audio/mpeg">Clique aqui para baixar o arquivo</a></p>
+    </audio>
+
+Para implementar áudio em HTML5, usamos a tag <audio> com alguns atributos específicos logo abaixo:
+
+preload: indica se o áudio será pré-carregado ou não e aceita três valores:
+
+         metadata: vai carregar apenas as informações sobre o arquivo (tamanho, tempo, informações de direito e etc)
+         none: não vai carregar nada até que o usuário clique no botão de play  ou um script reinicie a reprodução
+         auto: (padrão) vai carregar  o arquivo de áudio inteiro assim que a página for carregada, mesmo que o usuário nunca aperte play
+
+controls: vai ser responsável por apresentar o player na tela do usuário. Caso esse atributo não seja colocado junto com a tag <audio>, o controle do player será transparente e o usuário não poderá interagir com ele
+
+autoplay: vai inicar a reprodução do áudio assim que a página for carregada.
+
+loop: vai fazer com que o áudio seja repetido eternamente assim que terminar a reprodução
+
+Dentro da tag <audio>, adicionamos várias tags <source> com diferentes formatos do mesmo áudio. Coloque na parte de cima do seu formato favorito. Os demais só serão carregados caso o de cima falhe. Caso todos falhem, criamos um parágrafo que permite o download do arquivo MP3 para ouvir no player padrão do dispositivo.
+
+Vídeos
+
+Sempre quando formos utilizar vídeos em nosso site, devemos ter o mesmo pensamento das imagens, devido aos direitos autorais e principalmente ao tamanho do arquivo do vídeo, para não deixar o site pesado, ou com o custo de hospedagem muito alto.
+
+Para evitar deixar o site muito pesado, podemos converter o vídeo em arquivos menores usando o app HandBrake. ele realiza a diminuição do tamanho do arquivo ou a conversão para outro tipo de mídia MP4 ou WEBM (caso desejar a conversão para OGG, utilizar outro app).
+
+Para colocarmos um vídeo em nosso site, utilizamos a tag: <video> 
+
+por exemplo: 
+
+<video width="500" controls>
+        <source src="midia/meu-video.webm" type="video/webm">
+        <source src="midia/meu-video.ogv" type="video/ogg">
+        <source src="midia/meu-video.mp4" type="video/mp4">
+        <p>Seu navegador não tem compatibildade com reprodução de vídeo</p>
+    </video>
+
+A tag <video> possui alguns atributos importantes:
+
+width: vai indicar a largura que o vídeo terá na tela. Nesse exemplo, 500px.
+
+poster: configura uma imagem que vai aparecer como uma capa, enquanto o visitante não aperta o play para reproduzir o vídeo.
+
+controls: vai configurar se os controles do vídeo vão aparecer na parte inferior da mídia. Por padrão, os controles não aparecerão, mas basta colocar a palavra "controls" na tag <video>.
+
+autoplay: diz para o navegador se vídeo vai começar a tocar automaticamente, assim que a página for carregada.
+
+Hospedagem de vídeo*******************
+
+Quando colocamos vídeos em nosso site, podemos passar sempre com problemas de alto consumo de banda, site lento ou incompatilidades com alguns navegadores por conta do codecs. Um vídeo simples, dependo do tamanho do arquivo e da quantidade de visitas que o seu site possui por dia, pode acabar utilizando muitos gigabytes do seu tráfego, deixando o seu site lente, e consumindo muito da sua franquia de hospedagem. Por isso devemos sempre tomar cuidado quando formos hospedar um vídeo.
+
+Como podemos solucionar esses problemas? 
+
+Simples, podemos utilizar dois sites muito famosos de hospedagem de vídeo gratuitos, o YouTube ou o Vimeo. 
+
+Podemos utilizar ambos os sites para colocarmos nossos vídeos no site, apenas com a ferramenta de compartilhar e incorporar que os dois possuem. 
+
+O vimeo é mais recomendando caso deseje colocar vídeos privados que apenas algumas pessoas especificas podem acessar, pois o youtube não possui a mecânica de deixar o vídeo limitado para certas pessoas.

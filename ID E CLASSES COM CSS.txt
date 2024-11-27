@@ -1,0 +1,92 @@
+ID E CLASSES COM CSS
+
+*******************************************
+
+Para começar a dar mais poder ás CSS, criando estilos personalizados, precisamos aprender a utilizar os seletores de id (#) e de class (.) de maneira eficiente. Ao criar nosso conteúdo em HTML, podemos identificar um determinado elemento único com um id, ou agrupar elementos múltiplos que tenham características semelhantes com um class. Vamos olhar um exemplo simples de documento HTML, com propriedades identificadoras: 
+
+****************************
+
+<body>
+    <h1 id="principal">Criando sites com HTML e CSS</h1>
+    <h1>Aprendendo HTML</h1>
+    <h2 class="basico">HTML básico</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et dolorum exercitationem fugiat ut totam, mollitia nihil expedita distinctio corrupti laboriosam earum accusantium deserunt praesentium id quo cum, nulla tempora blanditiis.</p>
+    <h2 class="intermediario">HTML intermediário</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia cum quod, cumque eos magnam quo quos a ut, quis voluptatibus, laudantium eveniet accusamus sit! Quis aspernatur quia dignissimos ea dolores!</p>
+    <h2 class="avancado">HTML avançado</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At praesentium repellat ex voluptatem? Aut adipisci ex dolores voluptas? Veniam eligendi consequuntur qui culpa laborum, aut accusantium magnam tempore delectus repellendus.</p>
+    <h1 class="destaque">Aprendendo CSS</h1>
+    <h2 class="basico">CSS básico</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam libero labore atque ratione deleniti, quis ullam sunt id dolore numquam veritatis nihil animi, voluptate, similique molestiae quasi! Numquam, repudiandae qui?</p>
+    <h2 class="intermediario">CSS intermediário</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus vitae ducimus, ut, repudiandae aut eos consequatur exercitationem natus beatae suscipit, veniam maxime magnam animi! Veritatis deserunt voluptates reprehenderit iusto delectus?</p>
+    <h2 class="avancado destaque">CSS avançado</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repudiandae dicta velit laudantium debitis, ipsum nobis doloremque placeat quam porro quas omnis vel esse deserunt, ab voluptas praesentium, exercitationem sit.</p>
+
+*******************
+
+O id vai identificar um elemento único dentro da página atual. Essa identificação vai nos permitir criar um estilo especial para um elemento isolado. Já um class vai identificar uma classe à qual um ou mais elementos pertençam, compartilhando características em comum a todos os que façam parte desse grupo.
+
+******EM UM MESMO DOCUMENTO HTML, SÓ PODEMOS USAR UM ID PARA UM ÚNICO ELEMENTO, O QUE SIGNIFICA QUE NÃO PODEMOS TER DOIS ELEMENTOS COM UM MESMO ID DENTRO DE UMA MESMA PÁGINA. PORÉM, PODEMOS ATRIBUIR CLASS PARA VÁRIOS ELEMENTOS QUE POSSUAM ESSA MESMA CARACTERISTICA.********
+
+Após a criação do id e da class, precisamos adicionar declarações e seletores personalizados, ainda dentro da área <style>:
+
+*******************************
+
+body {
+    background-color: #B1DEB8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #2D6631;
+}
+
+#principal {
+    text-align: center;
+    background-color: green;
+    color: white;
+}
+
+h2 {
+
+    color:#4FB356 ;
+}
+
+.basico {
+    color:#4FB356;
+    font-weight: bold;
+}
+
+.intermediario {
+    color:#b3b14e;
+}
+
+.avancado {
+    color:#be4f4f;
+}
+
+
+.destaque {
+    background-color: #bebe4485;
+}
+
+*****************************
+
+Neste código, criamos seletores com simbologias novas. Isso porque não são seletores para elementos HTML, e sim seletores para id e class. Criamos um seletor personalizado para o identificador principal, que está atribuído ao h1. Você deve ter percebido que colocamos um símbolo # antes do id, por exemplo:
+
+#principal {
+    text-align: center;
+    background-color: green;
+    color: white;
+}
+
+Já o seletores para class são identicados por um ponto (.) que vem antes do nome da classe, por exemplo: 
+
+.avancado {
+    color:#be4f4f;
+}
+
+*******TODO ID EM HTML É IDENTIFICADO NAS CSS POR UM SÍMBOLO #. TODA CLASS EM HTML É IDENTIFICADA NAS CSS POR UM PONTO.*******
+
+*******PODEMOS ATRIBUIR ID E CLASS PARA O MESMO HTML, DEVEMOS TOMAR CUIDADO SOMENTE COM A REGRA DO ID ONDE NÃO PODE TER MAIS DE UM ELEMENTO NA MESMA PÁGINA.********
