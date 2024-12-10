@@ -105,6 +105,8 @@ Reunimos elas com a declaração dessa forma:
 
 background: cor / endereço da imagem / posição da imagem / repetição da imagem / attachment da imagem
 
+OBS: **NÃO FOI UTILIZADO A PROPRIEDADE 'SIZE', POIS ELA AINDA NÃO FUNCIONA NO SHORTHAND, MESMO SENDO UMA REGRA OFICIAL DA W3C. PARA UTILIZA-LÁ, DEVEMOS COLOCAR DE FORMA SEPARADA.
+
 **********************************
 
 CENTRALIZAÇÃO VERTICAL DE CONTAINERES
