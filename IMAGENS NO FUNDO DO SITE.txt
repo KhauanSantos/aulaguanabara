@@ -29,7 +29,86 @@ background-repeat: no-repeat -> sem repetição (apenas 1 imagem)
 
 Repetição de imagem: (a partir do canto superior esquerdo);
 
-Podemos também definir um tamanho para imagem, usando:
+**********************************
 
-background-size: 100px 100px;
+POSIÇÃO DA IMAGEM 
 
+Além de escolher o nível de repetição do background, também podemos mudar a posição de referência de início das repetições. Por padrão, é considerado o canto esquerdo superior (left top), mas podemos ter várias opções, como por exemplo:
+
+	left top  |    center top    | right top
+	
+       left center | center center | right center
+	
+       left bottom | center bottom | right bottom
+	
+**********************************
+
+
+Podemos redimensionar as imagens para forçá-la a caber na caixa. Por padrão, nenhum redimensionamento será aplicado, e a imagem será exibida do seu tamanho natural. Porém, Podemos usar  a propriedade 'background-size' ) para alterar esse comportamento. 
+
+O valores aceitos por essa propriedade são:
+
+auto - (padrao) a imagem de fundo será aplicada em seu tamanho original. Dessa forma, normalmente a imagem fica com quebras de repetição ou bordas no background, ocasionando em um resultado não responsivo. 
+
+
+*
+
+[length] px - Redimensiona a largura da imagem e faz a altura se adaptar automaticamente. 
+[length] % - Podemos também informar as duas dimensões na sequência ou também usar valores percentuais.
+
+OBS: É importante destacar que, caso configuremos o tamanho da nossa imagem com esse tipo de valor (largura x altura), a dimensão especificada para a imagem será fixa na tela independentemente do tamanho da viewport (navegador), resultando em páginas não responsivas, em quebras de repetição ou bordas no background. 
+
+É possível "contornar" isso inserindo valores em % (ex: 100% 100%)... Mas dessa forma, apesar de resolver o problema das quebras de repetição ou bordas no fundo, a nossa imagem ficará DISTORCIDA. Por isso não é muito recomendado usar esse tipo de valor (largura x altura) aplicado para o background, nem mesmo em %.
+
+*
+
+cover - Muda o tamanho da imagem para que ela seja sempre totalmente exibida na tela, sem nenhum corte. Dessa forma, geralmente  a imagem também fica com quebras de repetição ou bordas no background, ocasionando em um resultado não responsivo.
+
+
+contain - Redimensiona a imagem para que ela cubra o contêiner, mesmo que para isso ocorram alguns eventuais cortes. Ele vai cobrir a tela inteira, independentemente do tamanho dessa tela, mesmo que pra isso tenha que cortar um pouco a imagem. Esse valor é o mais recomendado para se obter resultados responsivos.
+
+*
+
+No fim das contas, não existe um valor absoluto que é sempre melhor que o outro, tudo vai depender do que você quer fazer.
+
+Se o conteúdo da nossa página for grande o suficiente para criar uma barra de rolagem, mesmo que a nossa imagem de fundo esteja corretamente configurada com um "background-size" valor "cover" e outras propriedades, ao scrollar para baixo, a imagem de fundo vai ter um comportamento de quebra de repetição ou borda no background... Mais adiante vamos ver como evitar isso.
+
+Observação: Quando usamos imagens de fundo, é natural pensarmos que não é necessário configurar uma cor de fundo... Entretanto, é sim recomendável que você configure uma cor de fundo, mesmo que posteriormente aplique uma imagem de fundo por cima dessa cor. 
+
+Isso porque quando o nosso site é carregado, primeiro é carregado o conteúdo HTML, sendo interpretado pelo navegador, e só depois é que as imagens são encaminhadas. Primeiro chega o texto e depois as imagens... Então durante esse processamento, principalmente se o seu servidor estiver lento, pode ser que ele carregue o site (texto), e a imagem de fundo (que é um arquivo um pouco mais pesado) demore alguns segundos para ser exibida. 
+
+Sendo assim, não é recomendado que você mostre o site branco e depois a imagem apareça... O ideal é que você coloque uma cor no fundo para que o usuário consiga já ir consumindo o conteúdo e aí sim posteriormente a imagem seja exposta.
+
+**********************************
+
+Temos também a propriedade de vínculo (attachment) da imagem com o resto do documento, usamos essa propriedade em casos de o conteúdo ser maior que a altura da página e seja necessário fazer uma rolagem vertical. 
+
+Ela suporta os seguintes valores:
+
+scroll - (padrao) a imagem de fundo vai rolar junto com o conteúdo.
+
+fixed - a imagem de fundo vai ficar fixada enquanto o conteúdo vai sendo rolado.
+
+**********************************
+
+SIMPLIFICANDO AS COISAS
+
+Existe uma possibilidade de usarmos uma shorthand (atalho) para essas propriedades também. As ordens de agrupamento para a abreviação dessas propriedades seria:
+
+* background-color
+* background-image
+* background-position
+* background-repeat
+* background-attachment
+
+Reunimos elas com a declaração dessa forma:
+
+background: cor / endereço da imagem / posição da imagem / repetição da imagem / attachment da imagem
+
+**********************************
+
+CENTRALIZAÇÃO VERTICAL DE CONTAINERES
+
+Quando queremos centralizar um bloco horizontalmente, aprendemos a usar o margin:auto; nas folhas de estilo. Mas como fazer a centralização vertical?
+
+Quando criamos nosso mini-projeto, tivemos que arrumar uma maneira de centralizar e redimensionar um vídeo dentro do container. Agora vou te mostrar outra técnica.
