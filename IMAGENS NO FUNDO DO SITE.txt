@@ -114,3 +114,123 @@ CENTRALIZAÇÃO VERTICAL DE CONTAINERES
 Quando queremos centralizar um bloco horizontalmente, aprendemos a usar o margin:auto; nas folhas de estilo. Mas como fazer a centralização vertical?
 
 Quando criamos nosso mini-projeto, tivemos que arrumar uma maneira de centralizar e redimensionar um vídeo dentro do container. Agora vou te mostrar outra técnica.
+
+Vamos começar criando uma hierarquia simples entre dois blocos: 
+
+<section id="container">
+        <article id="conteudo">
+        </article>
+    </section>
+
+Agora, vamos criar as configurações personalizadas para a <section> e <article> dentro da área <style> na área da cabeça <head> do código:
+
+#container {
+            height: 700px;
+            background-color: purple;
+            padding: 10px;
+        }
+
+        #conteudo {
+            height: 200px;
+            width: 300px;
+            background-color: yellow;
+        }
+
+O nosso objetivo aqui é deixar o retângulo interno exatamente no meio do retângulo externo. Vamos começar configurando o posicionamento de cada uma. 
+
+#container {
+            position: relative;
+	 }
+
+#conteudo {
+            position: absolute;
+	 }
+
+**O CONTAINER (LADO DE FORA) VAI TER UMA POSIÇÃO RELATIVA, OU SEJA, ELE JÁ É RELATIVO POR PADRÃO. JÁ O CONTEÚDO (PARTE DE DENTRO) TERÁ A POSIÇÃO ABSOLUTA. 
+
+QUANDO COLOCAMOS O POSICIONAMENTO ABSOLUTO EM UM CONTEUDO, PODEMOS CONFIGURAR DUAS PROPRIEDADES MUITO IMPORTANTES, QUE SÃO LEFT E TOP;
+
+Por exemplo: 
+
+#conteudo {
+            position: absolute;
+            height: 200px;
+            width: 300px;
+            background-color: yellow;
+
+            left: 300px;
+            top: 200px;
+        }
+
+O left de 300px é a distancia que vai desde a borda da esquerda do container até ao canto superior esquerdo do conteúdo. 
+
+O top de 200px é a distancia que vai desde a borda de cima do container até ao canto superior esquerdo do conteúdo.
+
+OBS: Essa propriedade é recomendada o uso de %, portanto NÃO UTILIZAREMOS PX COM ELA. 
+
+Iremos configurar left e top com o valor de 50%: 
+
+            left: 50%;
+            top: 50%;
+
+Feito isso, a nossa caixa interna será centralizada verticalmente. 
+
+É IMPORTANTE DESTACAR: Com essa configuração, o elemento interno realmente será alinhado pelo centro, mas tendo como referência o CANTO SUPERIOR ESQUERDO DA CAIXA FILHO... resultando especificamente no alinhamento desse ponto (canto superior esquerdo da box) e não da caixa como um todo.
+
+Para resolver isso, devemos mudar a posição do "ponto de alinhamento" da caixa filho para o CENTRO da box. Sendo que por padrão, como já vimos, esse ponto é no canto superior esquerdo. 
+
+Para transformar o "ponto de alinhamento" de uma caixa (mover a caixa), usamos a Propriedade de Estilo " transform ".
+
+Utilizando a propriedade transform é possível manipular visualmente um elemento (mover, rotacionar, dimensionar e etc). 
+
+As funções mais usadas para o transform são: rotate, scale, skew e translate. Para centralizar o "ponto de alinhamento" na nossa box, iremos usar a função "translate".
+
+translate - A função de translate serve para mover o elemento para os lados ou para cima/baixo. Mudar o seu "ponto de alinhamento"... A sintaxe pode ser especifica para um dos eixos x/y ( translateX ou translateY ), como pode ser apenas translate, abrangendo os dois eixos ( x, y ). Obs.: Para ir para o lado esquerdo ou para cima, use valores negativos.
+
+rotate - Como o nome já sugere, é utilizada para rotacionar o elemento, de 0 a 360 graus. Utilizando valores positivos, a rotação será realizada no sentido horário e, utilizando valores negativos, no sentido Anti-horário.
+
+scale - Utilizado para redimensionar os elementos, tendo como escala padrão o valor "1". Valores maiores que 1, aumentarão o tamanho do elemento, e valores menores que 1 diminuirão sua escala.
+
+skew - É utilizado para "distorcer" os elementos, alterando os ângulos.
+
+Nota: A propriedade de estilo "transform" e suas funções é muito utilizada juntamente com a pseudo-classe "hover" e com a propriedade de estilo "transition" para criar efeitos visuais.
+
+Entendido o conceito do transform e suas funções, usaremos a seguinte declaração para mudar/centralizar o "ponto de alinhamento" da nossa box filho: 
+
+transform: translate(-50%, -50%);
+
+Como queremos posicionamento centralizado, na função "translate" inserimos valores negativos de "-50% -50%" para deslocar o "ponto de alinhamento" da nossa caixa filho (metade do container... centro). O PRIMEIRO VALOR representa o deslocamento horizontal do ponto, e o SEGUNDO VALOR representa o deslocamento vertical desse ponto. 
+
+Utilizamos valores em % para ajustar o ponto de referência exatamente no meio da box (-50% -50%), mas dependendo do que você quer fazer, também pode usar valores em px ou outra unidade de medida.
+
+OBS: Lembrando que aquilo que de fato está centralizando a caixa são os Positions e suas Propriedades Auxiliares (left e top), a propriedade transform apenas mudou o ponto de referência da caixa filho.
+
+O código ficará assim: 
+
+#container {
+            background-image: url('imagens/target001.png');
+            background-size: 100% 100%;
+
+            position: relative;
+            height: 95vh;
+            background-color: purple;
+            padding: 10px;
+        }
+
+        #conteudo {
+            background-image: url('imagens/target001.png');
+            background-size: 100% 100%;
+
+            position: absolute;
+            height: 200px;
+            width: 300px;
+            background-color: yellow;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+
+Essa é apenas uma das técnicas de centralização de conteúdo, existem outras que requerem aprender conceitos mais aprofundados das folhas de estilo, como as caixas flexíveis (Flexbox).
+
