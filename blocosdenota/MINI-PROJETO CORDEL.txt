@@ -1,0 +1,67 @@
+MINI-PROJETO CORDEL
+
+**********************************
+
+Esse projeto irá incluir o efeito parallax às imagens de fundo e uma adaptação dinâmica do tamanho da fonte de acordo com o tamanho da tela. E o conteúdo que vamos dar vida, transformando em um site um belo cordel.
+
+**********************************
+
+
+AJUSTES NO HTML DO PROJETO*
+
+Começaremos pelo cabeçalho, ou header***
+
+   <header>
+        <h1>Cordel Moderno</h1>
+        <p>Por <a href="https://www.recantodasletras.com.br/poesias/3186743" target="_blank">Milton Duarte</a></p>
+    </header>
+
+Em nosso header irá conter o h1 (titulo do nosso cordel), e também logo abaixo um paragrafo com os créditos ao autor do cordel (Milton Duarte) com um link para o site oficial do cordel. 
+
+Logo em seguida, iremos para o rodapé, ou footer***
+
+    <footer>
+        <p>Site criado por <a href="https://github.com/KhauanSantos" target="_blank">Khauan Santos</a> para o <a href="https://www.cursoemvideo.com" target="_blank">CursoemVideo</a></p>
+    </footer>
+
+No footer, iremos apenas montar um paragrafo com informações sobre o criador do site e com alguns links para o perfil pessoal do mesmo. 
+
+
+Organizando o conteúdo em
+seções***
+
+Agora vamos começar a organizar o conteúdo em seções, que serão formatadas para intercalar áreas brancas com áreas de imagens. Você pode usar qualquer técnica, mas a que eu achei mais coerente semanticamente foi dividir tudo em <section> com um ou dois parágrafos e usando quebras de linha para organizar as estrofes. 
+
+   <section>
+        <p>
+            Estou ficando cansado <br>
+            Da tal tecnologia <br>
+            Só se fala por e-mail <br>
+            Mensagem curta e fria <br>
+            Twitter e Facebook <br>
+            Antes que eu caduque <br>
+            Vou dizer tudo em poesia.
+        </p>
+    </section>
+
+    <section>
+        <p>
+            Arroba agora não pesa <br>
+            É parte de um endereço <br>
+            Ponto final nem se usa <br>
+            Ou vai até no começo <br>
+            Agora é .com <br>
+            Se o saite é muito bom <br>
+            Ele vale um alto preço. 
+        </p>
+
+        <p>
+            Pra piorar a liguagem <br>
+            O emoticom é um risco <br>
+            Tem símbolo para tudo <br>
+            Ponto e vírgula e um asterisco <br>
+            Um beijo significa <br>
+            Pra entender como fica <br>
+            Decifre esse rabisco.
+        </p>
+     </section>
