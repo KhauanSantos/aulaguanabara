@@ -184,3 +184,106 @@ Dessa forma, quando a tela for grande, ele coloca a letra grande... Quando a tel
 
 Observação: Essa técnica das medidas vh e vw para adaptar o texto não é o melhor recurso para fazer esse tipo de adaptação dinâmica. Pode até funcionar, mas não gera um resultado 100% perfeito. O ideal para fazer esse tipo de adaptação seria usar Media Queries, um conceito que veremos mais pra frente.
 
+
+**************************
+
+IMAGENS COM EFEITO PARALLAX
+
+Para começar, criaremos no arquivo HTML dois id's para as nossas classes de imagem que criamos lá no inicio, iremos fazer isso para conseguirmos configurar cada imagem separadamente uma da outra, já que elas serão diferentes. 
+
+Ficará dessa forma: 
+
+<section class="imagem" id="img01">
+<section class="imagem" id="img02">
+
+E obviamente adicionaremos esses id's em nosso arquivo CSS: 
+
+section#img01 {
+}
+
+
+section#img02 {
+}
+
+Após isso, iremos colocar e personalizar cada imagem detalhadamente... 
+
+Para colocar a imagem, utilizaremos o background-image: url(../pasta de destino onde está a imagem)
+
+Logo em seguida mudaremos a posição das imagens para deixá-las posicionadas exatamente onde precisamos, para isso iremos usar o background-position: right center;
+
+Para termos uma imagem compacta e que não altere o tamanho quando diminuímos a tela, colocarem um background-size: cover; 
+
+Iremos também acrescentar algumas personalizações para quando colocarmos o efeito paralax nas imagens, elas estarem perfeitas...
+
+Iremos usar o box-shadow na section.imagem dessa forma: 
+
+box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.638);
+
+E o text-shadow na section.imagem > p dessa forma
+
+text-shadow: 1px 1px 0px black;
+
+Com tudo isso feito, essas são as mudanças no arquivo CSS:
+
+section.imagem {
+    background-color: rgb(55, 55, 55);
+    color: white;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.638);
+}
+
+section.imagem > p {
+    display: inline-block;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.512);
+    text-shadow: 1px 1px 0px black;
+}
+
+section#img01 {
+    background-image: url('../desafio012/imagens/background001.jpg');
+    background-position: right center;
+    background-size: cover;
+}
+
+section#img02 {
+    background-image: url('../desafio012/imagens/background002.jpg');
+    background-position: right center;
+    background-size: cover;
+}
+
+section.imagem {
+    background-color: rgb(55, 55, 55);
+    color: white;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.638);
+    background-size: cover;
+}
+
+section.imagem > p {
+    display: inline-block;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.512);
+    text-shadow: 1px 1px 0px black;
+}
+
+section#img01 {
+    background-image: url('../desafio012/imagens/background001.jpg');
+    background-position: right center;
+}
+
+section#img02 {
+    background-image: url('../desafio012/imagens/background002.jpg');
+    background-position: right center;
+}
+
+Para finalizar, colocaremos o efeito paralax, e é bem simples de ser feito. 
+
+Colocaremos no section.imagem a personalização background-attatchment:fixed; 
+
+section.imagem {
+    background-color: rgb(55, 55, 55);
+    color: white;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.638);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+Finalizado! 
