@@ -1,0 +1,206 @@
+TABELAS EM HTML
+
+***************************
+
+Para começar, temos um recado importante...
+
+********IMPORTANTE********VOCÊ NÃO PODE USAR TABELA PARA MONTAR A ESTRUTURA DO SEU SITE********IMPORTANTE********
+
+***************************
+
+
+Todas as tabelas em HTML são com a seguinte hierarquia:
+
+HIERARQUIA DE TABELAS (simples)
+        TABLE (table) = tabela
+            TABLE ROW (tr) = linha de tabela
+                TABLE HEADER (th) = cabeçalho de tabela  
+                TABLE DATA (td) = dado de tabela
+
+Segue exemplo abaixo de uma tabela simples feita em HTML:
+
+<table>
+        <tr> <!--Primeira linha-->
+            <td>A1</td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+        <tr> <!--Segunda linha-->
+            <td>A2</td>
+            <td>B2</td>
+            <td>C3</td>
+        </tr>
+        <tr> <!--Terceira linha-->
+            <td>A3</td>
+            <td>B3</td>
+            <td>C3</td>
+        </tr>
+        <tr> <!--Quarta linha-->
+            <td>A4</td>
+            <td>B4</td>
+            <td>C4</td>
+        </tr>
+    </table>
+
+Com esse código, inicialmente não ficará com a cara de uma tabela, e para isso utilizaremos o CSS. 
+
+Na tag td podemos estiliza-la com uma borda e um espaçamento. Por exemplo: 
+
+	td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+Podemos deixar também a tabela com algumas configurações: 
+
+	table {
+            width: 300px;
+            border-collapse: collapse;
+        }
+
+A personalização border-collapse pode ser utilizada para deixar as bordas coladas ou separadas uma da outra, como desejamos fazer uma tabela, o correto seria o uso da borda colada, e utilizando o "border-collapse: collapse" isso irá acontecer.
+
+*******Podemos estilizar cada bloco da tabela, basta apenas usarmos a tag 'class' ou 'id' e estilizarmos pelo CSS*******
+
+
+***IMPORTANTE**** O SITE W3C COLOCA COMO OPCIONAL NA VERSÃO 5 DO HTML O FECHAMENTO DAS TAGS <td>, sendo assim O FECHAMENTO DELAS NÃO SÃO OBRIGATÓRIOS. (mas lembrando que caso você não coloque os elementos na hierarquia correta, os dados vão aparecer antes ou depois da tabela...), ***por isso é aconselhado fechar a tag <td> mesmo não sendo obrigatório****
+
+*******
+
+ALINHANDO O CONTEÚDO EM TABELAS
+
+Para alinhar o conteúdo da tabela iremos utilizar a personalização 'text-align' para alinharmos horizontalmente e 'vertical-align' para alinhar verticalmente. 
+
+Por exemplo:
+
+	td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center; /*Alinhamento horizontal*/
+            vertical-align: top; /*Alinhamento veertical*/
+        }
+
+*******************************************
+
+TRABALHANDO COM TABELAS GRANDES
+
+*ANATOMIA PARA TABELAS GRANDES*
+
+	TABLE
+            THEAD
+                TR, TD, TH
+                TBODY
+                TR, TD, TH
+                TFOOT
+                TR, TD, TH
+
+Segue exemplo de uma tabela grande com cabeçalho e rodapé:
+
+    <table>
+        <thead>
+            <th>Estado</th>
+            <th>População</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>São Paulo</td>
+                <td>45 973 190</td>
+            </tr>
+            <tr>
+                <td>Minas Gerais</td>
+                <td>21 322 692</td>
+            </tr>
+            <tr>
+                <td>Rio de Janeiro</td>
+                <td17 219 679</td>
+            </tr>
+	</tbody>
+	<tfoot>
+            <th>Total da População</th>
+            <td>212 583 720</td>
+        </tfoot>
+
+***CAPTION E ESCOPO DE TÍTULOS EM TABELAS***
+
+Toda tabela possui uma legenda, e para fazermos isso acontecer em HTML, usamos a tag <caption>. Semanticamente, ela sempre ficará acima da tag <thead> como no exemplo abaixo:
+
+    <table>
+	<caption>População Brasileira<caption>
+        <thead>
+            <th>Estado</th>
+            <th>População</th>
+        </thead>
+
+ESCOPO******
+
+Os desenvolvedores iniciantes geralmente confundem muito aquilo que é "th" com aquilo que é "td"... Eles se confundem no momento de escolher se irão usar th ou td... E na dúvida acabam usando o td para tudo, é aí que mudam o significado das coisas. Isso é ruim porque no HTML o significado dos elementos é algo muito importante.
+
+Você pode usar a tag th (table header) sempre que precisar criar uma célula de título, de rótulo... Essa tag (th) serve para especificarmos o título de uma coluna ou até mesmo de uma linha. Essa tag também não precisa ser usada exclusivamente dentro da área da cabeça (thead)... Por exemplo, na área do rodapé (tfoot) podemos ter a necessidade de usar uma célula de título... Ex: cell = " Total de Habitantes: " - Nesse caso podemos usar o th sem problema nenhum, mesmo sendo no rodapé da tabela, visto que é um título.
+
+Células de Título = th
+
+Células de Dado = td (um dado pode ser em forma textual também, nem sempre é um número)
+
+Como foi dito, você pode usar a tag th para determinar um título. Na sua tabela, esse título pode ser referente à uma COLUNA (dados abaixo da célula de título) ou uma LINHA (dados ao lado da célula de título).
+
+Dessa forma, existe um parâmetro para a tag th, e esse parâmetro serve justamente para especificarmos se o título da nossa célula é para uma coluna ou para uma linha. Esse parâmetro é o " scope ", você deve inseri-lo dentro da tag de abertura do th.
+
+Se o título da sua célula for para uma COLUNA, use como definição do parâmetro " scope " o VALOR " col ".
+
+Se o título da sua célula for para uma LINHA, use como definição do parâmetro " scope " o VALOR " row ".
+
+Esse parâmetro é importante para que os mecanismos de busca (google por ex) consigam analisar dos dados da sua tabela de forma coerente, de forma que faça sentido. Tais parâmetros não causam nenhum resultado visual, mas é muito útil de um ponto de vista semântico.
+
+
+****************************
+
+EFEITOS ZEBRADOS
+
+Em tabelas que possuem muitos dados, divididos em muitas colunas e ainda com letras pequenas, fica difícil para o nosso cérebro saber onde está um determinado dado... Um dos recursos muito utilizados para melhorar essa questão é o efeito zebrado, que é colocar uma linha de cada cor dentro da sua tabela.
+
+Para criar o efeito zebrado dentro das linhas da sua tabela, é importante que determinemos em que parte da tabela queremos aplicar esse efeito, geralmente aplicamos somente nas linhas da parte do corpo da tabela (tbody).
+
+Para fazer isso, basicamente devemos abrir um seletor para o elemento " tbody ", indicado o seu filho direto que queremos formatar, que no caso é o " tr " (linha de tabela)... No elemento tr, iremos usar a pseudo-classe " nth-child() ". Para essa pseudo-classe, devemos inserir um valor dentro dos parênteses: O valor para aplicar o efeito zebrado é o " 2n ", que faz com que o background-color configurado para a linha seja inserido de duas em duas linhas, uma sim e uma não (mude o valor numérico se desejar um intervalo maior de inserção).
+
+Ficaria assim:
+
+tbody > tr:nth-child(2n) {
+    background-color: lightgray;
+}
+
+Obs.: Dentro do seletor exemplificado acima, temos uma declaração de especificação de background, a cor determinada nessa declaração que vai ser aplicada nas linhas zebradas.
+
+Na pseudo-classe " nth-child() ", ao invés de usarmos o valor " 2n ", também podemos usar os valores nominais " even " OU " odd " (par ou ímpar). Com um desses dois nomes como valor, podemos deixar toda linha que é ímpar (odd) com background, ou vice-versa, se for o valor even.
+
+O valor " 2n " seria equivalente ao valor nominal " even " (par)
+
+Entretanto, também temos o valor " 2n-1 ", que seria equivalente ao valor nominal " odd " (ímpar)
+
+Como já foi digo, dentro do seu seletor, você deve determinar uma cor para o background da linha, entretanto esse seletor só vai aplicar essa cor para as linhas pares (ou impares se for o caso), gerando o efeito zebrado...
+
+Dessa forma, uma dica é abrir um outro seletor, idêntico ao primeiro mas com um valor OPOSTO para a pseudo-classe " nth-child() " (se o valor do primeiro seletor é odd, para o segundo tem que ser even e vice-versa). E a cor do background configurada nesse segundo seletor tem que ser diferente. Assim você criará um efeito zebrado com cores que se alternam... Uma linha azul e outra amarela e assim por diante por exemplo.
+
+Com a pseudo-classe " nth-child() " exemplificamos o efeito zebrado com uma declaração de background-color dentro do seletor, entretanto, além da cor, dentro desse mesmo seletor você também pode fazer outras alterações que se manifestam de forma alternada (linha sim, linha não). Como por exemplo: Mudar o tamanho da letra, peso da letra, sublinhar e por aí vai...
+
+Nota: Você deve utilizar a técnica do efeito zebrado em tabelas que tem muitos dados lateralmente (muitas colunas), quando a letra é muito pequena e quando a tabela tem muitas linhas.
+
+****************************
+
+Cabeçalho fixo em tabelas grandes
+
+Quando temos uma tabela com muitos dados, com muitas colunas e principalmente com muitas linhas, conforme vamos descendo é natural que o cabeçalho fique para cima e "suma", e é nessa hora que algumas vezes acabamos nos perdendo na leitura da tabela, visto que esquecemos aquilo que determinadas colunas querem dizer 
+
+Um cabeçalho fixo pode solucionar esse problema, visto que conforme vamos scrollando a tabela, o cabeçalho se mantem fixo no topo, mantendo os títulos das colunas sempre visíveis. 
+
+Para fazer isso, devemos abrir um seletor para a área da cabeça da nossa tabela (thead), que é onde estão as células de título que constituem o nosso cabeçalho... E dentro desse seletor, declarar a propriedade " position " com o valor " sticky ". Após isso é necessário usar uma propriedade auxiliar do position, o " top "... E como não queremos mudar de lugar o nosso cabeçalho e sim apenas ativar o "sticky", você deve inserir nessa propriedade auxiliar o valor " -1px ", colando o cabeçalho na posição "zero".
+
+Exemplo do código:
+
+thead {
+    position: sticky;
+    top: -1px;
+}
+
+Um ponto positivo é que se em baixo da sua tabela você tiver mais conteúdo, conforme você vai scrollando, o cabeçalho que está fixo na tabela se limita fixo apenas dentro dessa tabela, ele não ficará por cima do resto do seu conteúdo.
+
+Observação: Essa técnica do cabeçalho fixo não está funcionando perfeitamente em todos os navegadores, então use esse recurso com moderação.
