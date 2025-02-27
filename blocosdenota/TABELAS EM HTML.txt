@@ -228,3 +228,50 @@ EXPANSÃO NA PRÁTICA:
 Expansão em forma de COLUNA: Para fazer isso, dentro da célula que você quer expandir, você deve inserir o parâmetro HTML " colspan " com o valor " 2 ", fazendo a célula ocupar duas colunas. Se você quiser expandir essa célula para mais de duas colunas (previamente excluir as células vizinhas), altere o valor numérico do parâmetro. Esse valor numérico que define quantas " colunas " que a célula deve expandir.
 
 Expansão em forma de LINHA: Para fazer isso, dentro da célula que você quer expandir, você deve inserir o parâmetro HTML " rowspan " com o valor " 2 ", fazendo a célula ocupar duas linhas. Se você quiser expandir essa célula para mais de duas linhas (previamente excluir as células vizinhas), altere o valor numérico do parâmetro. Esse valor numérico que define quantas " linhas " que a célula deve expandir.
+
+**************************
+
+ESCOPOS DE GRUPO
+
+Como nós já sabemos, usamos a tag " th " sempre que queremos criar uma célula de título. Na sua tabela, esse título pode ser referente à uma COLUNA (dados abaixo da célula de título) ou uma LINHA (dados ao lado da célula de título)... Chamamos esse apontamento de onde estão os dados de escopo. 
+
+Anteriormente nós vimos como aplicar e utilizar escopos simples para os th, usando o parâmetro scope com os valores col ou row... Esses valores servem apenas para apontarmos colunas ou linhas de forma única (apenas uma linha ou coluna). Agora, se na nossa tabela temos uma célula de título que foi expandida e que abrange mais de uma linha ou mais de uma coluna, temos que utilizar os escopos de grupo.
+
+Obs.: O W3C recomenda que você SEMPRE USE os escopos em toda e qualquer célula de título ( th ).
+
+ESCOPOS DE GRUPO:
+
+Os escopos de grupo são os seguintes: " colgroup " e " rowgroup " (usar como valor no parâmetro "scope" ). Eles são utilizados para associarmos determinados títulos ( th EXPANDIDO ) à um GRUPO de linhas ou um GRUPO de colunas.
+
+Basicamente, você deve usar os valores de escopo em grupo sempre que a sua célula de título abranger mais de uma linha (conjunto de linhas) ou mais de uma coluna (conjunto de colunas). Se você usar um valor simples (col/row) para apontar para um conjunto, somente a primeira linha ou a primeira coluna desse conjunto será considerada nesse apontamento... Isso não deve ser feito.
+
+Nota: Quando usamos expansão/mesclagem em uma célula de título, nós temos que analisar o apontamento do escopo pelo grupo e não pelo individual.
+
+Entretanto, não é sempre que uma célula de título com expansão/mesclagem irá precisar ter um escopo em grupo. Por mais que o título tenha mesclagem, se os dados desse título estiverem em uma única linha por exemplo, o escopo deve ser simples. Uma célula de título expandida não obrigatoriamente tem que ter um escopo em grupo, é importante que você tenha essa noção e saiba avaliar cada caso.
+
+**********************
+
+AGRUPANDO COLUNAS EM COLGROUP
+
+Na parte de HTML:
+
+Ex:	<table>
+        <colgroup>
+            <col class="cnome">
+            <col class="csexo">
+            <col class="cidade">
+            <col class="cprof">
+        </colgroup>
+
+**************************
+
+Tabelas responsivas
+
+Para obter uma tabela responsiva, utilizaremos uma técnica interessante e que salva vidas...
+
+Para começar, iremos colocar toda a <table> em uma <div> com um id=container. E no CSS iremos configurar essa <div> com o seguinte comando:
+
+div#container {
+            overflow-x: auto;
+        }
+Fazendo isso, teremos uma tabela responsiva em todos os dispositivos, sem cortar nenhuma parte da tela.
