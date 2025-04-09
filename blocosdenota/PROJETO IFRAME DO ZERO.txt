@@ -1,0 +1,366 @@
+PROJETO IFRAME DO ZERO
+
+*****************************
+
+Criaremos um projeto do zero para redes sociais, iremos utilizar a técnica de iframe, bordas, imagens de fundo e afins que aprendemos durantes as ultimas aulas e módulos. 
+
+*****
+
+Primeiro passo será baixar os arquivos prontos para começarmos a montar nosso arquivo HTML e CSS. 
+
+*****
+
+No segundo passo iremos montar nossa página inicial com uma simples configuração de HTML e uma configuração um pouco mais complexa de CSS. 
+
+No HTML, vamos criar dois links na tag <head>, o primeiro para termos nosso favicon no titulo do site, e o segundo será para o nosso arquivo CSS que ficará na pasta 'estilos'.
+
+Criaremos também dentro da tag <body> uma tag <main> com duas tags <section>, cada uma terá um "id" diferente. Uma será para o telefone e a outra para os ícones que teremos das redes sociais. 
+
+Assim que fizermos esse passo, a parti dai, usaremos o CSS a maior parte do tempo para fazermos a configuração visual do site. 
+
+Em CSS, vamos começar com a config básica e universal com @charset "UTF-8"; e * {padding 0px; margin 0px;}
+
+Depois, iremos configurar nosso arquivo HTML e body com as mesmas estilizações {height: 100vh; width 100vw;}
+
+Para a tag <main> as configs utilizadas serão: {position: relative; height 100vh;}
+
+****AGORA A PARTE MAIS IMPORTANTE
+
+Para a section do telefone 'section#telefone' essas serão as configs:
+
+{ position: absolute; top 50%; left 50%; tranform: translate (-50%, -50%);  height: 627px; width: 311px; background: url (../imagens/frame-iphone.png) no repeat;
+
+As especificações de position com top, left e transform, foram feitas para termos a imagem do telefone centralizada perfeitamente dentro da tag body. Já a altura e largura, foram colocadas as medidas exatas que podemos verificar pela propriedade do arquivo da imagem. E o background url para colocarmos a imagem do telefone.
+
+Agora na tag <body> que irá sobrepor a configuração feita inicialmente, colocaremos a imagem de fundo madeira com estilização background: url, deixaremos ela com background-size: cover; e background-attachment: fixed;
+
+ 
+O resultado até o momento será esse: 
+
+CSS*****
+
+@charset "UTF-8";
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    background: url('../imagens/fundo-madeira.jpg') no-repeat top center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main {
+    position: relative;
+    height: 100vh;
+}
+
+section#telefone {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 627px;
+    width: 311px;
+    background: url('..//imagens/frame-iphone.png') no-repeat;
+}
+
+****HTML
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="estilos/style.css">
+    <title>Projeto Redes Sociais</title>
+</head>
+<body>
+    <main>
+        <section id="telefone">
+            
+        </section>
+        <section id="redes-sociais">
+
+        </section>
+    </main>
+</body>
+
+*************
+
+POSICIONANDO O CONTEÚDO DO SITE
+
+Neste passo iremos colocar a tela do celular dentro da imagem do telefone que temos em nosso site. 
+
+Iremos criar um novo arquivo HTML com o nome 'home'. Vamos montar o código base e dentro da tag <body> criaremos um estilo com a configuração global * {margin: 0px; padding: 0px;}. Em seguida vamos configurar o <body>
+com as seguintes configs: {height: 100vh; width: 100vw; background: black url(tela-home); no-repeat top center;}
+
+Em seguida vamos para nosso código index.html e dentro da section com id="telefone" vamos criar a tag <iframe> com o endereço do código home.html que fizemos acima. 
+
+Colocaremos também na tag <iframe> um name="tela" e o id="tela". 
+
+Para finalizar vamos estilizar este iframe para a imagem da tela se encaixar perfeitamente. 
+
+Iremos configurar o iframe com id="tela" com as seguintes especificações: {position:relative; top: 80px; left 22px; width: 267px; height: 471px;}. Com essas configurações de tamanho, a tela caberá perfeitamente na imagem do telefone, basta irmos para o arquivo home.html e colocarmos dentro do estilo da tag <body> a especificação: background-size: cover; 
+
+No fim, os códigos ficaram dessa forma: 
+
+INDEX.HTML
+
+*******
+
+<body>
+    <main>
+        <section id="telefone">
+            <iframe src="home.html" name="tela" id="tela" frameborder="0"></iframe>
+        </section>
+        <section id="redes-sociais">
+
+        </section>
+    </main>
+</body>
+
+*******
+
+HOME.HTML
+
+*******
+
+<body>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            background: black url("imagens/tela-home.jpg") no-repeat top center;
+            background-size: cover;
+        }
+    </style>
+</body>
+
+*******
+
+CSS
+
+iframe#tela {
+    position: relative;
+    top: 80px;
+    left: 22px;
+    width: 267px;
+    height: 471px;
+}
+
+*******
+
+CRIANDO OS BOTÕES PARA REDES SOCIAIS
+
+Para a criação dos botões das redes sociais que ficará ao lado do telefone, vamos começar com a criação de tags de links <a> na section id="redes-sociais". Nestes links iremos colocar tags de <img> com as logos das redes sociais, um link para cada rede social. 
+
+Ficará dessa forma: 
+
+<a href="#" target="tela"><img src="imagens/logo-home.jpg" alt="Home"></a> 
+
+<a href="#" target="tela"><img src="imagens/logo-youtube.jpg" alt="YouTube"></a> 
+
+<a href="#" target="tela"><img src="imagens/logo-github.jpg" alt="Github"></a>
+
+<a href="#" target="tela"><img src="imagens/logo-instagram.jpg" alt="Instagram"></a>
+ 
+<a href="#" target="tela"><img src="imagens/logo-twitter.jpg" alt="Twitter"></a>
+
+<a href="#" target="tela"><img src="imagens/logo-facebook.jpg" alt="Facebook"></a>
+
+************
+
+Em seguida, iremos configurar o estilo no CSS.
+
+Criaremos a personalização de section#redes-sociais img {width: 40px; margin: 10px; border-radius: 50%; box-shadow: 2px 2px 5px black}
+
+Para deixarmos os botões um embaixo do outro, vamos usar a tag <br> ao lado das tags de links <a> no arquivo HTML:
+
+<a href="#" target="tela"><img src="imagens/logo-home.jpg" alt="Home"></a> <br>
+            <a href="#" target="tela"><img src="imagens/logo-youtube.jpg" alt="YouTube"></a> <br>
+            <a href="#" target="tela"><img src="imagens/logo-github.jpg" alt="Github"></a> <br>
+            <a href="#" target="tela"><img src="imagens/logo-instagram.jpg" alt="Instagram"></a> <br>
+            <a href="#" target="tela"><img src="imagens/logo-twitter.jpg" alt="Twitter"></a> <br>
+            <a href="#" target="tela"><img src="imagens/logo-facebook.jpg" alt="Facebook"></a> <br>
+
+E para acrescentar colocaremos os ícones ao lado direito da tela: 
+
+section#redes-sociais {
+    text-align: right;
+}
+
+***************** 
+
+Agora vamos colocar animações nos botões para quando colocarmos o ponteiro em cima dos ícones.
+
+Faremos da seguinte forma: 
+
+section#redes-sociais img:hover {
+    border: 2px solid rgba(255, 255, 255, 0.147);
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.637);
+    transition: transform .3s, border 1s;
+}
+
+Usaremos uma mudança de borda para a cor branca puxada para transparente, utilizaremos a config tranform para fazer os ícones mudarem um pouco de posição juntamente com o box-shadow para deixar sombras embaixo dos ícones para se adaptar a mudança de posição. Já o transition servira para mudar a velocidade de transição dos ícones quando acionados. 
+
+*****************
+
+Por fim adicionaremos uma config dentro da section#redes-sociais img que seria a box-sizing: border-box;. Ela será útil para deixar a borda fazer parte do objeto (ou caixa), e assim quando colocarmos o ponteiro do mouse por cima não teremos o problema do ícone expandir sem necessidade.
+
+*****************
+
+CRIANDO AS PÁGINAS DE CADA REDE SOCIAL
+
+Para começar, vamos criar um outro arquivo html com o nome "youtube.html". Neste arquivo vamos criar a tag img dentro de body e logo abaixo a tag <a>. 
+
+Dentro da tag <img> vamos colocar a imagem pré-instalada chamada tela-youtube.png que seria um print da página do youtube que vamos utilizar para fantasiar que é uma tela em tempo real.
+
+Já na tag <a> vamos colocar o link do canal do youtube e logo ao lado colocaremos o texto "ACESSE" com o target=_blank. 
+
+Depois disso faremos a estilização para a página da rede social ficar de forma apresentável. 
+
+Criaremos um novo arquivo de css com o nome de social.css e essa será as configurações utilizadas: 
+
+@charset "UTF-8";
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
+
+        img {
+            width: 100vw;
+        }
+
+        a {
+            display: block;
+            background-color: darkred;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: bolder;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: red;
+        }
+
+Deixaremos a largura da imagem ocupando 100% da tela para se encaixar no telefone. 
+
+Colocaremos a configuração global sem margin e padding com a font-familiy padronizada para termos uma tela bem encaixada na imagem do telefone no index.html.
+
+O link terá o display: block para ficar logo abaixo da imagem e não ao lado como no padrão. 
+
+E para finalizar teremos uma nova configuração chamada ::webkit-scrollbar que serve para tirar a barra de rolagem do site.
+
+Basicamente, a barra de rolagem de uma página pode ser dividida em quatro áreas: 
+
+Corpo - O elemento " corpo " é aquele que contém todos os outros componentes que formam a barra de rolagem.
+
+Trilho -  A parte do " trilho " é representada por aquele espaço em branco por onde o indicador cinza arrastável desliza.
+
+Scrollbar - A parte do " scrollbar " é representada por aquela alça (retângulo) cinza arrastável, que tem como função indicar a posição da página deslizando pelo trilho.
+
+Botões - Toda barra de rolagem tem dois botões, que ficam nas extremidades do trilho. 
+
+Tendo isso em mente, para personalizarmos a nossa barra de rolagem, é necessário abrir um seletor para cada um desses elementos (corpo, trilho, scrollbar e botões). No CSS, esses elementos são representados por pseudo-elementos (isso ocorre porque barras de rolagem são conteúdos periféricos) - Segue uma lista com esses elementos e suas representações:
+
+::-webkit-scrollbar - CORPO
+
+Esse elemento representa CORPO (objeto que contém todos os outros componentes da barra de rolagem: trilho, scrollbar e botões). Abra um seletor para esse elemento se deseja personalizar o corpo da barra de rolagem.
+
+Geralmente abrimos um seletor para esse elemento somente para declarar a LARGURA E ALTURA da barra de rolagem (altura no caso para barras horizontais) - Sempre declare a largura e altura. Não definimos as cores de fundo aqui porque os outros elementos ficam na frente desse, e portanto as configurações de estilo deles podem acabar cobrindo e estilização feita nesse seletor.
+
+Também é possível ocultar a barra de rolagem, fazendo com que ela "suma" por completo (e ao mesmo tempo mantenha a funcionalidade de rolagem da página normalmente). Para fazer isso basta usar a declaração " display: none " no seletor do corpo da barra de rolagem (::-webkit-scrollbar {...} ). 
+
+::-webkit-scrollbar-track - TRILHO
+
+Esse elemento representa o TRILHO. Abra um seletor para esse elemento se deseja personalizar o trilho da sua barra de rolagem.
+
+Você pode personalizar o trilho de várias maneiras: Configurar a cor de fundo, definir uma borda, arredondar as pontas da caixa e inclusive adicionar uma imagem como background por exemplo (não recomendado).
+
+Obs.: A largura do trilho segue a largura do CORPO (elemento que contém todos os componentes da barra de rolagem). Isso significado que a largura definida para o corpo que será aplicada ao trilho.
+
+::-webkit-scrollbar-thumb - SCROLLBAR
+
+Esse elemento representa o SCROLLBAR (indicador de posicionamento). Abra um seletor para esse elemento se deseja personalizar o scrollbar da sua barra de rolagem.
+
+Você pode personalizar o scrollbar de várias maneiras: Configurar a cor de fundo, definir uma borda, arredondar as pontas da caixa e inclusive também adicionar uma imagem como background por exemplo (não recomendado).
+
+Obs.: A largura do scrollbar segue a largura do CORPO (elemento que contém todos os componentes da barra de rolagem). Isso significado que a largura definida para o corpo que será aplicada ao scrollbar.
+
+::-webkit-scrollbar-button - BOTÕES
+
+Esse elemento representa os BOTÕES. Abra um seletor para esse elemento se deseja personalizar os botões da sua barra de rolagem.
+
+Você pode personalizar os botões de várias maneiras: Formatar a altura, mudar a cor de fundo, definir uma borda, arredondar as pontas da caixa e por aí vai...
+
+Atenção: Se você quer personalizar a barra de rolagem do seu site, você deve adicionar esses seletores de estilização de barra como pseudo-elemento do "body", do "html" ou do seu seletor global. 
+
+Vale lembrar que também é possível adicionar esses seletores de estilização de barra em um elemento específico que também tenha barra de rolagem, numa caixa do overflow por exemplo (se já foi definido no seletor global não precisa, já que assim fica válido para todos os elementos da página...)
+
+Nota: Você também pode estilizar esses componentes que formam a barra usando a pseudo-classe "hover". Por exemplo, abrir um seletor para o scrollbar (indicador de posicionamento) e configurar um background-color diferente que só vai ser ativado quando o usuário passar o mouse por cima do indicador. Exemplo: 
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(92, 92, 92);
+}
+
+BARRA DE ROLAGEM VERTICAL E HORIZONTAL:
+
+Toda caixa pode ter barras de rolagem tanto verticais quanto horizontais, ocorre que ao personalizarmos os componentes da nossa barra, podemos definir se queremos aplicar essas configurações especificamente para uma barra horizontal ou vertical. 
+
+Para especificar um desses dois tipos de barra, normalmente usamos uma das duas pseudo-classes listadas abaixo nos seletores dos nossos componentes:
+
+:vertical
+
+:horizontal
+
+Para especificar se a estilização do seu componente é para uma barra vertical ou horizontal, é necessário inserir no final do seletor do componente uma dessas duas pseudo-classes apresentadas. Exemplo:
+
+Seletor para estilizar especificamente o scrollbar HORIZONTAL:
+
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: rgb(0, 255, 242);
+}
+
+Seletor para estilizar especificamente o scrollbar VERTICAL:
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: rgb(0, 255, 242);
+}
+
+Caso você queira criar seletores que abrangem ambos os tipos de barras, tanto verticais quanto horizontais, basta NÃO USAR nenhuma dessas pseudo-classes apresentadas (:vertical / :horizontal). Nesse caso, lembre-se de declarar a propriedade de altura no seletor do componente corpo, caso contrário as barras horizontais ficarão com uma dimensão diferente das verticais.
+
+Uma coisa que vai ocorrer ser a sua caixa tiver duas barras de rolagem (vertical e horizontal), é o surgimento do elemento " corner " (CANTO). Segue uma descrição desse elemento e sua representação:
+
+::-webkit-scrollbar-corner - CANTO
+
+Esse é um elemento extra que representa o CANTO. Ele só fica visível quando temos ativado na nossa página uma barra de rolagem vertical e horizontal ao mesmo tempo. Ele fica onde as duas barras de rolagem horizontal e vertical se encontram. Geralmente, esse é o canto inferior direito da janela do navegador. Pode ser necessário estilizar esse elemento em caixas do overflow por exemplo, onde às vezes temos duas barras de rolagem que se encontram.
+
+Você pode personalizar o canto de várias maneiras: Mudar a cor de fundo, definir uma borda e por aí vai...
+
+********
+
+Após todas as configurações serem feitas, vamos colocar um link dentro do arquivo "youtube.html" do social.css para as personalizações serem aplicadas no site e também no index.html, vamos colocar dentro da section id="redes-sociais" o link do arquivo do youtube. E assim iremos fazer em todos as redes sociais que possui o botão.
